@@ -15,7 +15,9 @@ app.use(bodyParser.json());
 app.use('/uploads/images', express.static(path.join(__dirname, 'uploads', 'images'))); 
 
 
-app.use(cors());
+app.use(cors({
+  origin:"https://favplacesonrender.com"
+}));
 
 const placesRoutes = require("./routes/places-routes");
 const usersRoutes = require("./routes/user-routes");
