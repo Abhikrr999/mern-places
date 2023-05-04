@@ -8,7 +8,6 @@ const mongoose = require("mongoose");
 const app = express();
 const helmet = require("helmet");
 
-app.use(helmet());
 app.use(bodyParser.json());
 
 app.use('/uploads/images', express.static(path.join('uploads', 'images'))); 
