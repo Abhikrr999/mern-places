@@ -5,15 +5,15 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const cors = require("cors");
-const helmet = require("helmet");
+//const helmet = require("helmet");
 
 const app = express();
 
 
-app.use(helmet());
+//app.use(helmet());
 app.use(bodyParser.json());
 
-//app.use('/uploads/images', express.static(path.join(__dirname, 'uploads', 'images'))); 
+app.use('/uploads/images', express.static(path.join(__dirname, 'uploads', 'images'))); 
 
 // app.use((req, res, next) => {
 //   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -28,10 +28,10 @@ app.use(bodyParser.json());
 app.use(cors());
 
 
-app.use('/uploads/images', (req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  next();
-}, express.static(path.join(__dirname, 'uploads', 'images')));
+// app.use('/uploads/images', (req, res, next) => {
+//   res.setHeader('Access-Control-Allow-Origin', '*');
+//   next();
+// }, express.static(path.join(__dirname, 'uploads', 'images')));
 
 const placesRoutes = require("./routes/places-routes");
 const usersRoutes = require("./routes/user-routes");
